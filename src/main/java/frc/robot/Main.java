@@ -5,6 +5,12 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+/*
+Developed by Spencer Greene and Kenneth Hoehn
+Prepared for First Robotics Team 5142
+Date Started: 1/27/2019
+*/
+
 package frc.robot;
 
 import edu.wpi.first.wpilibj.RobotBase;
