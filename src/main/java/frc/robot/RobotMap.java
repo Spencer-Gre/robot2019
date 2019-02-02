@@ -17,9 +17,9 @@ public class RobotMap {
   
   public static int kjoystickPort = 0;
 
-  public static int kleftMasterPort = 1;
-  public static int kleftSlavePort = 2;
-  public static int krightMasterPort = 3;
-  public static int krightSlavePort = 4;
+  public static int kleftMasterPort = 0;
+  public static int kleftSlavePort = 1;
+  public static int krightMasterPort = 2;
+  public static int krightSlavePort = 3;
 
 }
