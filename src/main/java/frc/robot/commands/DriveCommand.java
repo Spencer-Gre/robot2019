@@ -27,6 +27,7 @@ public class DriveCommand extends Command {
     double y = -Robot.m_oi.stick.getY();
     double x = Robot.m_oi.stick.getX();
 
+    Robot.semiAutoSubsystem.readLimeLight();
     Robot.driveSubsystem.telopDrive(y, x);
   }
 
