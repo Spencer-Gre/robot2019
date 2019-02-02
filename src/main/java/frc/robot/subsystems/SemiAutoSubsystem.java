@@ -41,6 +41,28 @@ public class SemiAutoSubsystem extends Subsystem {
     return(table);
   }
 
+  /*Added by Ken
+  Rough code for aiming. Activate from OI.java when button held?
+  http://docs.limelightvision.io/en/latest/cs_aiming.html */
+  public void limeLightAim(){
+    double Kp = -0.1; //TODO: optimize
+    double min_command = 0.05; //TODO: optimize
+    NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+    double tx = table.getEntry("tx").getDouble(0.0);
+
+    double heading_error = -tx;
+    double steering_adjust = 0.0f;
+    if (tx > 1.0){
+        steering_adjust = Kp*heading_error - min_command;
+    }else if (tx < 1.0){
+        steering_adjust = Kp*heading_error + min_command;
+    }
+    //TODO: use steering_adjust to alter X and Y for motors
+    /*left_command += steering_adjust;
+    right_command -= steering_adjust;*/
+  }
+
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
