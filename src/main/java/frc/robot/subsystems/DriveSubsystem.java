@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -22,9 +23,9 @@ public class DriveSubsystem extends Subsystem {
   // here. Call these from Commands.
 
   public WPI_TalonSRX leftMaster = new WPI_TalonSRX(RobotMap.kleftMasterPort);
-  public WPI_TalonSRX leftSlave = new WPI_TalonSRX(RobotMap.kleftSlavePort);
+  public WPI_VictorSPX leftSlave = new WPI_VictorSPX(RobotMap.kleftSlavePort);
   public WPI_TalonSRX rightMaster = new WPI_TalonSRX(RobotMap.krightMasterPort);
-  public WPI_TalonSRX rightSlave = new WPI_TalonSRX(RobotMap.kleftMasterPort);
+  public WPI_VictorSPX rightSlave = new WPI_VictorSPX(RobotMap.krightSlavePort);
 
   public DifferentialDrive drive = new DifferentialDrive(leftMaster, rightMaster);
 
