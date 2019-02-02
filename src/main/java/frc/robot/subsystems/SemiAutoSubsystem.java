@@ -22,7 +22,7 @@ public class SemiAutoSubsystem extends Subsystem {
 
   //Added by Ken. Stolen from 
   //http://docs.limelightvision.io/en/latest/getting_started.html#basic-programming
-  public void readLimeLight(){
+  public NetworkTable readLimeLight(){
     NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
     NetworkTableEntry tx = table.getEntry("tx");
     NetworkTableEntry ty = table.getEntry("ty");
@@ -37,6 +37,8 @@ public class SemiAutoSubsystem extends Subsystem {
     SmartDashboard.putNumber("LimelightX", x);
     SmartDashboard.putNumber("LimelightY", y);
     SmartDashboard.putNumber("LimelightArea", area);
+
+    return(table);
   }
 
   @Override
