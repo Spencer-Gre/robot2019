@@ -34,7 +34,7 @@ public class DriveSubsystem extends Subsystem {
     rightSlave.follow(rightMaster);
   }
 
-  public void telopDrive(double y, double x) {
+  public void telopDrive(double y, double x) {  
     drive.arcadeDrive(y, x);
   }
 

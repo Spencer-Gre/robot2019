@@ -132,6 +132,10 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
 
+    if(m_subsystem.testMotor.getSensorCollection().isFwdLimitSwitchClosed() == true){
+      m_subsystem.testMotor.set(0);
+    }
+
     this.CompressorHandler();
     SmartDashboard.putNumber("Compressor Status", pcm.getCompressorCurrent());
   }
