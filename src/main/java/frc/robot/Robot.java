@@ -7,6 +7,9 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -32,6 +35,9 @@ public class Robot extends TimedRobot {
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
+
+  public static Compressor pcm = new Compressor(8);
+  public static Relay compressor = new Relay(0);
 
   /**
    * This function is run when the robot is first started up and should be
@@ -124,6 +130,17 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+
+    this.CompressorHandler();
+  }
+
+  public void CompressorHandler(){
+     if(!pcm.getPressureSwitchValue()){
+       compressor.set(Value.kForward);
+     } 
+     else{
+       compressor.set(Value.kOff);
+     }
   }
 
   /**
