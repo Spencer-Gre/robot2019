@@ -51,7 +51,7 @@ public class SemiAutoSubsystem extends Subsystem {
     double tx = table.getEntry("tx").getDouble(0.0);
 
     double heading_error = -tx;
-    double steering_adjust = 0.0f;
+    double steering_adjust = 0.0;
     if (tx > 1.0){
         steering_adjust = Kp*heading_error - min_command;
     }else if (tx < 1.0){
