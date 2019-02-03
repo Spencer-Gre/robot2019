@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Relay.Value;
@@ -132,6 +133,7 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().run();
 
     this.CompressorHandler();
+    SmartDashboard.putNumber("Compressor Status", pcm.getCompressorCurrent());
   }
 
   public void CompressorHandler(){
