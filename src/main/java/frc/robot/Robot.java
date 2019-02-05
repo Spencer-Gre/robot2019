@@ -20,6 +20,7 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.SemiAutoSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.LimelightSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -32,6 +33,7 @@ public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static DriveSubsystem driveSubsystem = new DriveSubsystem();
   public static SemiAutoSubsystem semiAutoSubsystem = new SemiAutoSubsystem();
+  public static LimelightSubsystem LimelightSubsystem = new LimelightSubsystem();
   public static OI m_oi;
 
   Command m_autonomousCommand;
