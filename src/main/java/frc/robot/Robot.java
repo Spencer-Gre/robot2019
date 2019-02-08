@@ -33,7 +33,7 @@ public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static DriveSubsystem driveSubsystem = new DriveSubsystem();
   public static SemiAutoSubsystem semiAutoSubsystem = new SemiAutoSubsystem();
-  public static LimelightSubsystem LimelightSubsystem = new LimelightSubsystem();
+  public static LimelightSubsystem limelightSubsystem = new LimelightSubsystem();
   public static OI m_oi;
 
   Command m_autonomousCommand;
