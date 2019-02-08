@@ -19,7 +19,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.SemiAutoSubsystem;
+import frc.robot.subsystems.SolenoidSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.GrabberSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
 
 /**
@@ -33,7 +35,9 @@ public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static DriveSubsystem driveSubsystem = new DriveSubsystem();
   public static SemiAutoSubsystem semiAutoSubsystem = new SemiAutoSubsystem();
+  public static GrabberSubsystem grabberSubsystem = new GrabberSubsystem();
   public static LimelightSubsystem limelightSubsystem = new LimelightSubsystem();
+  public static SolenoidSubsystem solenoidSubsystem = new SolenoidSubsystem();
   public static OI m_oi;
 
   Command m_autonomousCommand;
@@ -137,6 +141,7 @@ public class Robot extends TimedRobot {
     if(m_subsystem.testMotor.getSensorCollection().isFwdLimitSwitchClosed() == true){
       m_subsystem.testMotor.set(0);
     }
+    
 
     this.CompressorHandler();
     SmartDashboard.putNumber("Compressor Status", pcm.getCompressorCurrent());

@@ -10,10 +10,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class DriveCommand extends Command {
-  public DriveCommand() {
+public class LiftCommand extends Command {
+  public LiftCommand() {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.driveSubsystem);
+    // eg. requires(chassis);
+    requires(Robot.solenoidSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -24,11 +25,7 @@ public class DriveCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double y = Robot.m_oi.stick.getY();
-    double x = Robot.m_oi.stick.getX();
-
-    Robot.semiAutoSubsystem.readLimeLight();
-    Robot.driveSubsystem.telopDrive(y, x);
+      Robot.solenoidSubsystem.TurnOnLift();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -40,12 +37,13 @@ public class DriveCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+      Robot.solenoidSubsystem.TurnOffLift();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
+      end();
   }
 }
