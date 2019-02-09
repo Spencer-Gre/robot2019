@@ -25,7 +25,7 @@ public class OI {
   JoystickButton liftButton = new JoystickButton(stick, 7);
 
   public OI () {
-    button.whileHeld(new GrabberCommand(0.25));
+    button.whileHeld(new GrabberCommand(0.25)); 
     button2.whileHeld(new GrabberCommand(-0.25));
     //liftButton.whileHeld(new LiftCommand());
   }
