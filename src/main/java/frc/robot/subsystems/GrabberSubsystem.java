@@ -9,13 +9,14 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
  */
 public class GrabberSubsystem extends Subsystem {
   
-  public Talon tal = new Talon(0);
+  public Talon tal = new Talon(RobotMap.grabberPort);
 
   public void ToggleGrabber(double input){
     tal.set(input);

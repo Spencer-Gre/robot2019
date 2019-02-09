@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.GrabberCommand;
+import frc.robot.commands.SliderCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -28,6 +29,9 @@ public class OI {
   public OI () {
     grabberForward.whileHeld(new GrabberCommand(0.25));
     grabberReverse.whileHeld(new GrabberCommand(-0.25));
+
+    sliderForward.whileHeld(new SliderCommand(1.0));
+    sliderReverse.whileHeld(new SliderCommand(-1.0));
 
   }
 

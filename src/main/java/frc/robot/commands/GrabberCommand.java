@@ -8,7 +8,6 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class GrabberCommand extends Command {
@@ -20,7 +19,6 @@ public class GrabberCommand extends Command {
     // eg. requires(chassis);
     requires(Robot.grabberSubsystem);
     set = input;
-    SmartDashboard.putNumber("Initial Set", set);
   }
 
   // Called just before this Command runs the first time
@@ -32,7 +30,6 @@ public class GrabberCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    SmartDashboard.putNumber("Input", set);
     Robot.grabberSubsystem.ToggleGrabber(set);
     // Wont spin, unless negative number is passed in.
     

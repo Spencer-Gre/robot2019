@@ -8,6 +8,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
@@ -16,12 +17,12 @@ public class SliderCommand extends Command {
   
   public double set; //must NOT be public static double
 
+
   public SliderCommand(double input) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.sliderSubsystem);
     set = input;
-    SmartDashboard.putNumber("Initial Set", set);
   }
 
   // Called just before this Command runs the first time
@@ -33,8 +34,9 @@ public class SliderCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    SmartDashboard.putNumber("Input", set);
+    
     Robot.sliderSubsystem.ToggleSlider(set);
+
     // Wont spin, unless negative number is passed in.
     
   }
