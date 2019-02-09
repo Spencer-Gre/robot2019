@@ -20,8 +20,6 @@ public class OI {
   
   //Instantiate Joystick with port
   public Joystick stick = new Joystick(RobotMap.kjoystickPort);
-  
-
   JoystickButton button = new JoystickButton(stick, 6);
   JoystickButton button2 = new JoystickButton(stick, 9);
   JoystickButton liftButton = new JoystickButton(stick, 7);
@@ -29,7 +27,6 @@ public class OI {
   public OI () {
     button.whileHeld(new GrabberCommand(0.25));
     button2.whileHeld(new GrabberCommand(-0.25));
-
     //liftButton.whileHeld(new LiftCommand());
   }
 

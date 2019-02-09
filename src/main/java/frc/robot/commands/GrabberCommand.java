@@ -13,16 +13,14 @@ import frc.robot.Robot;
 
 public class GrabberCommand extends Command {
 
-  public double set;
+  public double set; //must NOT be public static double
 
   public GrabberCommand(double input) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.grabberSubsystem);
     set = input;
-
     SmartDashboard.putNumber("Initial Set", set);
-
   }
 
   // Called just before this Command runs the first time
