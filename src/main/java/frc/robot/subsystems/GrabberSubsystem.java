@@ -27,8 +27,7 @@ public class GrabberSubsystem extends Subsystem {
   public void TurnOffGrabber(){
     tal.set(0);
   }
-
-
+  
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
