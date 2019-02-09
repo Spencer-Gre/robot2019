@@ -14,18 +14,13 @@ import frc.robot.Robot;
 public class GrabberCommand extends Command {
 
   public static double set;
-  public static boolean inverted;
 
-  public GrabberCommand(double input, boolean inverted) {
+  public GrabberCommand(double input) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.grabberSubsystem);
     set = input;
-    if(inverted){
-      Robot.grabberSubsystem.tal.setInverted(true);
-    }else{
-      Robot.grabberSubsystem.tal.setInverted(false);
-    }
+
   }
 
   // Called just before this Command runs the first time
@@ -36,8 +31,9 @@ public class GrabberCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.grabberSubsystem.ToggleGrabber(set);
-    SmartDashboard.putBoolean("Inverted? ",Robot.grabberSubsystem.tal.getInverted());
+    SmartDashboard.putBoolean("Is Inverted?", Robot.grabberSubsystem.tal.getInverted());
+    Robot.grabberSubsystem.ToggleGrabber(0.05);
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -15,8 +15,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class GrabberSubsystem extends Subsystem {
   
-  public Talon tal = new Talon(0);
-
+  public Talon tal = new Talon(2);
 
 
 

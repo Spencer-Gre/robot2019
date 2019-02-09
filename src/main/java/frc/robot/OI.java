@@ -25,8 +25,8 @@ public class OI {
   JoystickButton button2 = new JoystickButton(stick, 9);
 
   public OI () {
-    button.whileHeld(new GrabberCommand(0.1,false));
-    button2.whileHeld(new GrabberCommand(0.1,true));
+    button.whileHeld(new GrabberCommand(-0.05));
+    button2.whileHeld(new GrabberCommand(-0.05));
 
   }
 
