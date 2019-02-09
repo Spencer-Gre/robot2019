@@ -19,6 +19,9 @@ public class GrabberCommand extends Command {
     // eg. requires(chassis);
     requires(Robot.grabberSubsystem);
     set = input;
+    if(set < 0){
+      Robot.grabberSubsystem.tal.setInverted(true);
+    }
   }
 
   // Called just before this Command runs the first time
@@ -42,6 +45,9 @@ public class GrabberCommand extends Command {
   @Override
   protected void end() {
     Robot.grabberSubsystem.TurnOffGrabber();
+    if(set < 0){
+      Robot.grabberSubsystem.tal.setInverted(false);
+    }
   }
 
   // Called when another command which requires one or more of the same
