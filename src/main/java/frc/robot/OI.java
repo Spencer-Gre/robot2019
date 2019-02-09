@@ -24,7 +24,7 @@ public class OI {
   JoystickButton button = new JoystickButton(stick, 6);
 
   public OI () {
-    button.whenPressed(new GrabberCommand());
+    button.toggleWhenPressed(new GrabberCommand());
   }
 
   // There are a few additional built in buttons you can use. Additionally,

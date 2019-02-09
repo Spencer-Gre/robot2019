@@ -17,13 +17,11 @@ public class GrabberSubsystem extends Subsystem {
   
   public Talon tal = new Talon(0);
 
-  public void TurnOnGrabber(){
-    tal.set(0.25);
+
+  public void ToggleGrabber(double input){
+    tal.set(input);
   }
 
-  public void TurnOffGrabber(){
-    tal.set(0.0);
-  }
 
   @Override
   public void initDefaultCommand() {
