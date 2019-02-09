@@ -35,6 +35,10 @@ public class SliderCommand extends Command {
   protected void execute() {
     Robot.sliderSubsystem.ToggleSlider(set);
     SmartDashboard.putNumber("Bosch Motor Value", Robot.sliderSubsystem.getValue());
+
+    if(Robot.sliderSubsystem.getValue() >= 600){
+      end();
+    }
     // Wont spin, unless negative number is passed in.
     
   }
