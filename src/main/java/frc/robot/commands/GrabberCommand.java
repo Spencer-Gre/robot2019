@@ -13,13 +13,14 @@ import frc.robot.Robot;
 public class GrabberCommand extends Command {
 
   public static double set;
+  public static boolean inverted;
 
-  public GrabberCommand(double input) {
+  public GrabberCommand(double input, boolean inverted) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.grabberSubsystem);
     set = input;
-    if(set < 0){
+    if(inverted){
       Robot.grabberSubsystem.tal.setInverted(true);
     }
   }
@@ -45,7 +46,7 @@ public class GrabberCommand extends Command {
   @Override
   protected void end() {
     Robot.grabberSubsystem.TurnOffGrabber();
-    if(set < 0){
+    if(inverted){
       Robot.grabberSubsystem.tal.setInverted(false);
     }
   }
