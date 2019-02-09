@@ -32,7 +32,7 @@ public class GrabberCommand extends Command {
   @Override
   protected void execute() {
     SmartDashboard.putBoolean("Is Inverted?", Robot.grabberSubsystem.tal.getInverted());
-    Robot.grabberSubsystem.ToggleGrabber(0.05);
+    Robot.grabberSubsystem.ToggleGrabber(0.25);
     // Wont spin, unless negative number is passed in.
     
   }

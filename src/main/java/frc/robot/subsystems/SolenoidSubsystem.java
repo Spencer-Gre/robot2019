@@ -19,13 +19,18 @@ public class SolenoidSubsystem extends Subsystem {
 
   Solenoid Lift = new Solenoid(2);
 
+  public SolenoidSubsystem(){
+    Lift.set(true);
+  }
+
+/*
   public void TurnOnLift(){
     Lift.set(true);
   }
   public void TurnOffLift(){
     Lift.set(false);
   }
-
+*/
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
