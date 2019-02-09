@@ -9,7 +9,6 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.commands.GrabberCommand;
 
 /**
  * Add your docs here.
@@ -23,13 +22,12 @@ public class GrabberSubsystem extends Subsystem {
   }
 
   public void TurnOffGrabber(){
-    tal.set(0);
+    tal.set(0.0);
   }
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new GrabberCommand());
   }
 }

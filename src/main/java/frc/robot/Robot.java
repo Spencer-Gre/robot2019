@@ -16,11 +16,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.SemiAutoSubsystem;
 import frc.robot.subsystems.SolenoidSubsystem;
-import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.GrabberSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
 
@@ -32,7 +30,6 @@ import frc.robot.subsystems.LimelightSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static DriveSubsystem driveSubsystem = new DriveSubsystem();
   public static SemiAutoSubsystem semiAutoSubsystem = new SemiAutoSubsystem();
   public static GrabberSubsystem grabberSubsystem = new GrabberSubsystem();
@@ -53,9 +50,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-    m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
-    // chooser.addOption("My Auto", new MyAutoCommand());
-    SmartDashboard.putData("Auto mode", m_chooser);
+
   }
 
   /**
@@ -136,12 +131,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    Scheduler.getInstance().run();
-
-    if(m_subsystem.testMotor.getSensorCollection().isFwdLimitSwitchClosed() == true){
-      m_subsystem.testMotor.set(0);
-    }
-    
+    Scheduler.getInstance().run();    
     
 
     this.CompressorHandler();
