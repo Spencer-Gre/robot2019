@@ -18,8 +18,7 @@ import frc.robot.commands.GrabberCommand;
 public class OI {
   
   //Instantiate Joystick with port
-  public Joystick stick = new Joystick(RobotMap.kjoystickPort);
-  
+  public Joystick stick = new Joystick(RobotMap.kjoystickPort);  
 
   JoystickButton grabberForward = new JoystickButton(stick, 6);
   JoystickButton grabberReverse = new JoystickButton(stick, 9);
@@ -29,6 +28,7 @@ public class OI {
   public OI () {
     grabberForward.whileHeld(new GrabberCommand(0.25));
     grabberReverse.whileHeld(new GrabberCommand(-0.25));
+
   }
 
   // There are a few additional built in buttons you can use. Additionally,

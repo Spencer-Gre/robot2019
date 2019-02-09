@@ -19,11 +19,11 @@ public class SliderSubsystem extends Subsystem {
 
 
 
-  public void ToggleGrabber(double input){
+  public void ToggleSlider(double input){
     tal.set(input);
   }
 
-  public void TurnOffGrabber(){
+  public void TurnOffSlider(){
     tal.set(0);
   }
 
