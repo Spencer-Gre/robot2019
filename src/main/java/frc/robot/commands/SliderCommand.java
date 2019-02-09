@@ -15,13 +15,14 @@ import frc.robot.Robot;
 public class SliderCommand extends Command {
   
   public double set; //must NOT be public static double
+  public boolean finished;
 
   public SliderCommand(double input) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.sliderSubsystem);
     set = input;
-
+    finished = false;
   }
 
   // Called just before this Command runs the first time
