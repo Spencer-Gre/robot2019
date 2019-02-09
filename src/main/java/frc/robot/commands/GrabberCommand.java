@@ -23,6 +23,8 @@ public class GrabberCommand extends Command {
     set = input;
     if(inverted){
       Robot.grabberSubsystem.tal.setInverted(true);
+    }else{
+      Robot.grabberSubsystem.tal.setInverted(false);
     }
   }
 
@@ -48,9 +50,6 @@ public class GrabberCommand extends Command {
   @Override
   protected void end() {
     Robot.grabberSubsystem.TurnOffGrabber();
-    if(inverted){
-      Robot.grabberSubsystem.tal.setInverted(false);
-    }
   }
 
   // Called when another command which requires one or more of the same
