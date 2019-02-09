@@ -22,6 +22,10 @@ public class GrabberSubsystem extends Subsystem {
     tal.set(input);
   }
 
+  public void TurnOffGrabber(){
+    tal.set(0);
+  }
+
 
   @Override
   public void initDefaultCommand() {
