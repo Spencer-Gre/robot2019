@@ -22,4 +22,6 @@ public class RobotMap {
   public static int krightMasterPort = 2;
   public static int krightSlavePort = 3;
 
+  public static int sliderPort = 1;
+
 }

@@ -7,23 +7,24 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
  */
-public class SolenoidSubsystem extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+public class SliderSubsystem extends Subsystem {
+  public Talon tal = new Talon(RobotMap.sliderPort);
 
-  Solenoid Lift = new Solenoid(0);
 
-  public void TurnOnLift(){
-    Lift.set(true);
+
+  public void ToggleGrabber(double input){
+    tal.set(input);
   }
-  public void TurnOffLift(){
-    Lift.set(false);
+
+  public void TurnOffGrabber(){
+    tal.set(0);
   }
 
   @Override

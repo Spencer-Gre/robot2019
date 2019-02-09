@@ -10,7 +10,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.GrabberCommand;
-//import frc.robot.commands.LiftCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -22,15 +21,14 @@ public class OI {
   public Joystick stick = new Joystick(RobotMap.kjoystickPort);
   
 
-  JoystickButton button = new JoystickButton(stick, 6);
-  JoystickButton button2 = new JoystickButton(stick, 9);
-  JoystickButton liftButton = new JoystickButton(stick, 7);
+  JoystickButton grabberForward = new JoystickButton(stick, 6);
+  JoystickButton grabberReverse = new JoystickButton(stick, 9);
+  JoystickButton sliderForward = new JoystickButton(stick, 7);
+  JoystickButton sliderReverse = new JoystickButton(stick, 8);
 
   public OI () {
-    button.whileHeld(new GrabberCommand(0.25));
-    button2.whileHeld(new GrabberCommand(-0.25));
-
-    //liftButton.whileHeld(new LiftCommand());
+    grabberForward.whileHeld(new GrabberCommand(0.25));
+    grabberReverse.whileHeld(new GrabberCommand(-0.25));
   }
 
   // There are a few additional built in buttons you can use. Additionally,
