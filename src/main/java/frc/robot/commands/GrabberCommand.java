@@ -11,10 +11,14 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class GrabberCommand extends Command {
-  public GrabberCommand() {
+
+  public static double set;
+
+  public GrabberCommand(double input) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.grabberSubsystem);
+    set = input;
   }
 
   // Called just before this Command runs the first time
