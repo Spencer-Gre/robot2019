@@ -9,7 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.LiftCommand;
+import frc.robot.commands.GrabberCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -24,7 +24,7 @@ public class OI {
   JoystickButton button = new JoystickButton(stick, 6);
 
   public OI () {
-    button.toggleWhenPressed(new LiftCommand());
+    button.toggleWhenPressed(new GrabberCommand());
   }
 
   // There are a few additional built in buttons you can use. Additionally,
