@@ -38,7 +38,7 @@ public class ElevatorCommand extends Command {
     double error = Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition() - set;
     double speed = Math.min(1.0,error/4096);
     if(error > 100){
-      Robot.elevatorSubsystem.elevator.set(1.0);
+      Robot.elevatorSubsystem.elevator.set(speed);
     }else{
       end();
     }
