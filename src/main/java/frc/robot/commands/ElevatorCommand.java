@@ -32,8 +32,8 @@ public class ElevatorCommand extends Command {
   @Override
   protected void execute() {
     Robot.elevatorSubsystem.usePIDOutput(set);
-    
     SmartDashboard.putNumber("EncoderValue", Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition());
+
 
     if(Robot.elevatorSubsystem.elevator.getSensorCollection().isFwdLimitSwitchClosed()
     || Robot.elevatorSubsystem.elevator.getSensorCollection().isRevLimitSwitchClosed()){
