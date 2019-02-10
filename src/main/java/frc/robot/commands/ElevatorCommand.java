@@ -20,7 +20,7 @@ public class ElevatorCommand extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.elevatorSubsystem);
-    set = input;
+    set = input + Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition();
   }
 
   // Called just before this Command runs the first time
@@ -35,8 +35,11 @@ public class ElevatorCommand extends Command {
     //Robot.elevatorSubsystem.usePIDOutput(set);
     SmartDashboard.putNumber("EncoderValue", Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition());
 
-    double error = Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition() - set;
+    double error = set - Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition();
     double speed = Math.min(1.0,error/4096);
+
+    SmartDashboard.putNumber("Error", error);
+
     if(error > 100){
       Robot.elevatorSubsystem.elevator.set(speed);
     }else{
