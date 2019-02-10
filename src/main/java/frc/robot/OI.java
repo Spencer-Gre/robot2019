@@ -36,8 +36,8 @@ public class OI {
     sliderForward.whenPressed(new SliderCommand(1.0));
     sliderReverse.whenPressed(new SliderCommand(-1.0));
 
-    elevatorUp.whenPressed(new ElevatorCommand(20));
-    elevatorDown.whenPressed(new ElevatorCommand(-20));
+    elevatorUp.whenPressed(new ElevatorCommand(20000));
+    elevatorDown.whenPressed(new ElevatorCommand(-20000));
 
   }
 

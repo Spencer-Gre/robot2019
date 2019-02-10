@@ -31,10 +31,14 @@ public class ElevatorCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.elevatorSubsystem.usePIDOutput(set);
+    //Robot.elevatorSubsystem.usePIDOutput(set);
     SmartDashboard.putNumber("EncoderValue", Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition());
 
-
+    if(Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition() < set){
+      Robot.elevatorSubsystem.elevator.set(1.0);
+    }else{
+      end();
+    }
     if(Robot.elevatorSubsystem.elevator.getSensorCollection().isFwdLimitSwitchClosed()
     || Robot.elevatorSubsystem.elevator.getSensorCollection().isRevLimitSwitchClosed()){
       end();
