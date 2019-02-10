@@ -33,8 +33,7 @@ public class ElevatorCommand extends Command {
   protected void execute() {
     Robot.elevatorSubsystem.ToggleElevator(set);
     
-    SmartDashboard.putBoolean("FwdSwitch", Robot.elevatorSubsystem.elevator.getSensorCollection().isFwdLimitSwitchClosed());
-    SmartDashboard.putBoolean("RevSwitch", Robot.elevatorSubsystem.elevator.getSensorCollection().isRevLimitSwitchClosed());
+    SmartDashboard.putNumber("EncoderValue", Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition());
 
     if(Robot.elevatorSubsystem.elevator.getSensorCollection().isFwdLimitSwitchClosed()
     || Robot.elevatorSubsystem.elevator.getSensorCollection().isRevLimitSwitchClosed()){

@@ -138,7 +138,7 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().run();    
     
 
-    this.CompressorHandler();
+    //this.CompressorHandler();
     SmartDashboard.putNumber("Compressor Status", pcm.getCompressorCurrent());
   }
 

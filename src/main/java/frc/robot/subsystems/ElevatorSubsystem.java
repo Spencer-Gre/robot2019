@@ -7,7 +7,8 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
@@ -19,16 +20,18 @@ public class ElevatorSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  public WPI_TalonSRX elevator = new WPI_TalonSRX(RobotMap.kelevatorPort);
+  public TalonSRX elevator = new TalonSRX(RobotMap.kelevatorPort);
 
-  
+  public ElevatorSubsystem(){
+    elevator.setSelectedSensorPosition(0);
+  }
 
-  public void ToggleElevator(double speed){
-    elevator.set(speed);
+  public void ToggleElevator(double position){
+    elevator.set(ControlMode.Position, position);
   } 
 
   public void TurnOffElevator(){
-    elevator.set(0);
+    elevator.set(ControlMode.Position, 0);
   }
 
   @Override
