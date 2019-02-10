@@ -31,7 +31,7 @@ public class ElevatorCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.elevatorSubsystem.ToggleElevator(set);
+    Robot.elevatorSubsystem.usePIDOutput(set);
     
     SmartDashboard.putNumber("EncoderValue", Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition());
 
