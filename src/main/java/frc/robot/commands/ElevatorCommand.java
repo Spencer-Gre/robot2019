@@ -10,6 +10,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
+import java.lang.Math;
 
 public class ElevatorCommand extends Command {
 
@@ -34,7 +35,9 @@ public class ElevatorCommand extends Command {
     //Robot.elevatorSubsystem.usePIDOutput(set);
     SmartDashboard.putNumber("EncoderValue", Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition());
 
-    if(Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition() < set){
+    double error = Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition() - set;
+    double speed = Math.min(1.0,error/4096);
+    if(error > 100){
       Robot.elevatorSubsystem.elevator.set(1.0);
     }else{
       end();
