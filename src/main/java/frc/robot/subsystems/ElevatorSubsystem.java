@@ -21,8 +21,12 @@ public class ElevatorSubsystem extends Subsystem {
 
   public WPI_TalonSRX elevator = new WPI_TalonSRX(RobotMap.kelevatorPort);
 
-  public void goUp(int level){
-    elevator.set(.25);
+  public void ToggleElevator(double speed){
+    elevator.set(speed);
+  }
+
+  public void TurnOffElevator(){
+    elevator.set(0);
   }
 
   @Override

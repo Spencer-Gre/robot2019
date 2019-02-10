@@ -8,26 +8,36 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class ElevatorCommand extends Command {
-  public ElevatorCommand() {
+
+  public double set; //must NOT be public static double
+
+  public ElevatorCommand(double input) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.elevatorSubsystem);
+    set = input;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.elevatorSubsystem.goUp(1);
+    Robot.elevatorSubsystem.ToggleElevator(set);
     
-    if(Robot.elevatorSubsystem.elevator.getSensorCollection().isFwdLimitSwitchClosed()){
+    SmartDashboard.putBoolean("FwdSwitch", Robot.elevatorSubsystem.elevator.getSensorCollection().isFwdLimitSwitchClosed());
+    SmartDashboard.putBoolean("RevSwitch", Robot.elevatorSubsystem.elevator.getSensorCollection().isRevLimitSwitchClosed());
+
+    if(Robot.elevatorSubsystem.elevator.getSensorCollection().isFwdLimitSwitchClosed()
+    || Robot.elevatorSubsystem.elevator.getSensorCollection().isRevLimitSwitchClosed()){
       end();
     }
   }
@@ -41,7 +51,8 @@ public class ElevatorCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.elevatorSubsystem.elevator.set(0);
+    Robot.elevatorSubsystem.TurnOffElevator();
+    this.cancel();
   }
 
   // Called when another command which requires one or more of the same

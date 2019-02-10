@@ -54,6 +54,7 @@ public class SliderCommand extends Command {
   @Override
   protected void end() {
     Robot.sliderSubsystem.TurnOffSlider();
+    this.cancel();
   }
 
   // Called when another command which requires one or more of the same

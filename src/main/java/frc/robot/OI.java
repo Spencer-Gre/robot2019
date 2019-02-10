@@ -27,15 +27,17 @@ public class OI {
   JoystickButton sliderForward = new JoystickButton(stick, 7);
   JoystickButton sliderReverse = new JoystickButton(stick, 8);
   JoystickButton elevatorUp = new JoystickButton(stick, 5);
+  JoystickButton elevatorDown = new JoystickButton(stick, 10);
 
   public OI () {
     grabberForward.whileHeld(new GrabberCommand(0.25));
     grabberReverse.whileHeld(new GrabberCommand(-0.25));
 
-    sliderForward.whileHeld(new SliderCommand(1.0));
-    sliderReverse.whileHeld(new SliderCommand(-1.0));
+    sliderForward.whenPressed(new SliderCommand(1.0));
+    sliderReverse.whenPressed(new SliderCommand(-1.0));
 
-    elevatorUp.whileHeld(new ElevatorCommand());
+    elevatorUp.whenPressed(new ElevatorCommand(1));
+    elevatorDown.whenPressed(new ElevatorCommand(-1));
 
   }
 
