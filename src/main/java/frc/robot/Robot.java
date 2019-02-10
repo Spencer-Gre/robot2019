@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.SemiAutoSubsystem;
 import frc.robot.subsystems.SliderSubsystem;
 import frc.robot.subsystems.SolenoidSubsystem;
@@ -37,6 +38,7 @@ public class Robot extends TimedRobot {
   public static LimelightSubsystem limelightSubsystem = new LimelightSubsystem();
   public static SolenoidSubsystem solenoidSubsystem = new SolenoidSubsystem();
   public static SliderSubsystem sliderSubsystem = new SliderSubsystem();
+  public static ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
   public static OI m_oi;
 
   Command m_autonomousCommand;

@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
@@ -18,7 +19,11 @@ public class ElevatorSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  public WPI_TalonSRX elevator = new WPI_TalonSRX(5);
+  public WPI_TalonSRX elevator = new WPI_TalonSRX(RobotMap.kelevatorPort);
+
+  public void goUp(int level){
+    elevator.set(.25);
+  }
 
   @Override
   public void initDefaultCommand() {
