@@ -7,14 +7,11 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 
 /**
@@ -25,13 +22,13 @@ public class ElevatorSubsystem extends PIDSubsystem {
   // here. Call these from Commands.
 
   public WPI_TalonSRX elevator = new WPI_TalonSRX(RobotMap.kelevatorPort);
+  public PIDController controller;
 
 
   public ElevatorSubsystem(){
     super("Elevator", 1.0, 0.0, 0.0);
     setAbsoluteTolerance(0.2);
     getPIDController().setContinuous(false);
-    LiveWindow.addActuator("Elevator", "PIDSubsystem Controller", getPIDController());
     elevator.setSelectedSensorPosition(0);
   }
 
@@ -40,7 +37,7 @@ public class ElevatorSubsystem extends PIDSubsystem {
   } 
 
   public void TurnOffElevator(){
-    elevator.pidWrite(0);
+    elevator.stopMotor();
   }
 
   @Override
