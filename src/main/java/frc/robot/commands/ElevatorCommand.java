@@ -36,11 +36,11 @@ public class ElevatorCommand extends Command {
     SmartDashboard.putNumber("EncoderValue", Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition());
 
     double error = set - Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition();
-    double speed = Math.min(1.0,error/4096.0);
+    double speed = Math.min(1.0,error/2000.0+0.1);
 
     SmartDashboard.putNumber("Error", error);
 
-    if(error > 100){
+    if(error > 50){
       Robot.elevatorSubsystem.elevator.set(speed);
     }else{
       end();
