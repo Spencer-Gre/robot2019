@@ -40,7 +40,7 @@ public class ElevatorCommand extends Command {
 
     SmartDashboard.putNumber("Error", error);
 
-    if(error > 50){
+    if(error > 10){
       Robot.elevatorSubsystem.elevator.set(speed);
     }else{
       end();
