@@ -141,7 +141,7 @@ public class Robot extends TimedRobot {
     //this.CompressorHandler();
     SmartDashboard.putNumber("Compressor Status", pcm.getCompressorCurrent());
   }
-
+/*
   public void CompressorHandler(){
      if(!pcm.getPressureSwitchValue()){
        compressor.set(Value.kForward);
@@ -150,7 +150,7 @@ public class Robot extends TimedRobot {
        compressor.set(Value.kOff);
      }
   }
-
+*/
   /**
    * This function is called periodically during test mode.
    */

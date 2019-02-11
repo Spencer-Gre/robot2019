@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.GrabberCommand;
 import frc.robot.commands.SliderCommand;
 import frc.robot.commands.ElevatorCommand;
+import frc.robot.commands.LiftCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -28,6 +29,8 @@ public class OI {
   JoystickButton sliderReverse = new JoystickButton(stick, 8);
   JoystickButton elevatorUp = new JoystickButton(stick, 5);
   JoystickButton elevatorDown = new JoystickButton(stick, 10);
+  JoystickButton liftButton = new JoystickButton(stick, 2);
+  JoystickButton reverseLift = new JoystickButton(stick, 1);
 
   public OI () {
     grabberForward.whileHeld(new GrabberCommand(0.25));
@@ -35,6 +38,9 @@ public class OI {
 
     sliderForward.whenPressed(new SliderCommand(1.0));
     sliderReverse.whenPressed(new SliderCommand(-1.0));
+
+    liftButton.whileHeld(new LiftCommand(1.0));
+    reverseLift.whileHeld(new LiftCommand(2.0));
 
     elevatorUp.whenPressed(new ElevatorCommand(20000));
     elevatorDown.whenPressed(new ElevatorCommand(-20000));

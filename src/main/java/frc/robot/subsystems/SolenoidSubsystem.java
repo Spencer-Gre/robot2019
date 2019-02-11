@@ -7,7 +7,8 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -17,13 +18,16 @@ public class SolenoidSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  Solenoid Lift = new Solenoid(0);
+  DoubleSolenoid leftFront = new DoubleSolenoid(0, 1);
 
   public void TurnOnLift(){
-    Lift.set(true);
+    leftFront.set(Value.kForward);
   }
-  public void TurnOffLift(){
-    Lift.set(false);
+  public void ReverseLift(){
+    leftFront.set(Value.kReverse);
+  }
+  public void OffLift(){
+    leftFront.set(Value.kOff);
   }
 
   @Override
