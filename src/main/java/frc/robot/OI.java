@@ -48,9 +48,9 @@ public class OI {
     liftButton.whileHeld(new LiftCommand(1.0));
     reverseLift.whileHeld(new LiftCommand(2.0));
 
-    resetElevator.whenPressed(new ElevatorForceZero());
-    elevatorHatchOne.whenPressed(new HatchOneCommand());
-    elevatorZero.whenPressed(new ElevatorZeroCommand());
+    resetElevator.whenActive(new ElevatorForceZero());
+    elevatorHatchOne.whenActive(new HatchOneCommand());
+    elevatorZero.whenActive(new ElevatorZeroCommand());
 
   }
 

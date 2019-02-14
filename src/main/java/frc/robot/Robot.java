@@ -46,7 +46,7 @@ public class Robot extends TimedRobot {
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
-  public static Compressor pcm = new Compressor(8);
+  public static Compressor pcm = new Compressor();
   public static Relay compressor = new Relay(0);
 
   /**
@@ -140,7 +140,7 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().run();    
     
 
-    //this.CompressorHandler();
+    this.CompressorHandler();
     SmartDashboard.putNumber("Compressor Status", pcm.getCompressorCurrent());
   }
 
