@@ -10,9 +10,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.GrabberCommand;
+import frc.robot.commands.HatchOneCommand;
 import frc.robot.commands.SliderCommand;
-import frc.robot.commands.ElevatorCommand;
 import frc.robot.commands.LiftCommand;
+import frc.robot.commands.ElevatorZeroCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -25,10 +26,13 @@ public class OI {
 
   JoystickButton grabberForward = new JoystickButton(stick, 6);
   JoystickButton grabberReverse = new JoystickButton(stick, 9);
+
   JoystickButton sliderForward = new JoystickButton(stick, 7);
   JoystickButton sliderReverse = new JoystickButton(stick, 8);
-  JoystickButton elevatorUp = new JoystickButton(stick, 5);
-  JoystickButton elevatorDown = new JoystickButton(stick, 10);
+
+  JoystickButton elevatorHatchOne = new JoystickButton(stick, 5);
+  JoystickButton elevatorZero = new JoystickButton(stick, 10);
+
   JoystickButton liftButton = new JoystickButton(stick, 2);
   JoystickButton reverseLift = new JoystickButton(stick, 1);
 
@@ -42,8 +46,8 @@ public class OI {
     liftButton.whileHeld(new LiftCommand(1.0));
     reverseLift.whileHeld(new LiftCommand(2.0));
 
-    elevatorUp.whenPressed(new ElevatorCommand(20000));
-    elevatorDown.whenPressed(new ElevatorCommand(-20000));
+    elevatorHatchOne.whenPressed(new HatchOneCommand());
+    elevatorZero.whenPressed(new ElevatorZeroCommand());
 
   }
 
