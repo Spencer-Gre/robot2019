@@ -13,6 +13,7 @@ import frc.robot.commands.GrabberCommand;
 import frc.robot.commands.HatchOneCommand;
 import frc.robot.commands.SliderCommand;
 import frc.robot.commands.LiftCommand;
+import frc.robot.commands.ElevatorForceZero;
 import frc.robot.commands.ElevatorZeroCommand;
 
 /**
@@ -31,6 +32,7 @@ public class OI {
   JoystickButton sliderReverse = new JoystickButton(stick, 8);
 
   JoystickButton elevatorHatchOne = new JoystickButton(stick, 5);
+  JoystickButton resetElevator = new JoystickButton(stick, 4);
   JoystickButton elevatorZero = new JoystickButton(stick, 10);
 
   JoystickButton liftButton = new JoystickButton(stick, 2);
@@ -46,6 +48,7 @@ public class OI {
     liftButton.whileHeld(new LiftCommand(1.0));
     reverseLift.whileHeld(new LiftCommand(2.0));
 
+    resetElevator.whenPressed(new ElevatorForceZero());
     elevatorHatchOne.whenPressed(new HatchOneCommand());
     elevatorZero.whenPressed(new ElevatorZeroCommand());
 

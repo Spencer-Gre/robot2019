@@ -11,6 +11,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -142,7 +143,7 @@ public class Robot extends TimedRobot {
     //this.CompressorHandler();
     SmartDashboard.putNumber("Compressor Status", pcm.getCompressorCurrent());
   }
-/*
+
   public void CompressorHandler(){
      if(!pcm.getPressureSwitchValue()){
        compressor.set(Value.kForward);
@@ -151,7 +152,7 @@ public class Robot extends TimedRobot {
        compressor.set(Value.kOff);
      }
   }
-*/
+
   /**
    * This function is called periodically during test mode.
    */

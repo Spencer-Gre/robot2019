@@ -47,8 +47,12 @@ public class PIDElevatorSubsystem extends Subsystem {
     elevator.set(ControlMode.MotionMagic, num);
   }
 
-  public void zeroOut(){
+  public void gotoZero(){
     elevator.set(ControlMode.MotionMagic, 0);
+  }
+
+  public void resetEncoder(){
+    elevator.setSelectedSensorPosition(0, 0, 0);
   }
 
   public void gotoHatchOne(){
