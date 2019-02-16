@@ -10,6 +10,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Relay.Value;
@@ -41,10 +42,11 @@ public class Robot extends TimedRobot {
   public static SolenoidSubsystem solenoidSubsystem = new SolenoidSubsystem();
   public static SliderSubsystem sliderSubsystem = new SliderSubsystem();
   public static PIDElevatorSubsystem pidElevatorSubsystem = new PIDElevatorSubsystem();
-  public static ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
+  //public static ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
   public static OI m_oi;
 
   AnalogInput ai = new AnalogInput(2);
+  DigitalInput di = new DigitalInput(0);
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -142,7 +144,8 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     Scheduler.getInstance().run();    
     
-    SmartDashboard.putNumber("Ultrasonic Sensor", ai.getAverageBits());
+    SmartDashboard.putNumber("Ultrasonic Sensor", ai.getValue());
+    SmartDashboard.putBoolean("Photoelectric Sensor", di.get());
 
     this.CompressorHandler();
     SmartDashboard.putNumber("Compressor Status", pcm.getCompressorCurrent());
