@@ -20,7 +20,7 @@ import frc.robot.RobotMap;
  */
 public class PIDElevatorSubsystem extends Subsystem {
   
-  TalonSRX elevator = new TalonSRX(RobotMap.kelevatorPort);
+  public TalonSRX elevator = new TalonSRX(RobotMap.kelevatorPort);
 
   public PIDElevatorSubsystem(){
     elevator.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 0);

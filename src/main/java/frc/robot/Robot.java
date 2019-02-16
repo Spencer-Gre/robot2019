@@ -146,6 +146,8 @@ public class Robot extends TimedRobot {
     
     SmartDashboard.putNumber("Ultrasonic Sensor", ai.getValue());
     SmartDashboard.putBoolean("Photoelectric Sensor", di.get());
+    SmartDashboard.putNumber("Sens Position", 
+      Robot.pidElevatorSubsystem.elevator.getSelectedSensorPosition());
 
     this.CompressorHandler();
     SmartDashboard.putNumber("Compressor Status", pcm.getCompressorCurrent());
