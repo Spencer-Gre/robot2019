@@ -41,8 +41,8 @@ public class Robot extends TimedRobot {
   public static LimelightSubsystem limelightSubsystem = new LimelightSubsystem();
   public static SolenoidSubsystem solenoidSubsystem = new SolenoidSubsystem();
   public static SliderSubsystem sliderSubsystem = new SliderSubsystem();
-  public static PIDElevatorSubsystem pidElevatorSubsystem = new PIDElevatorSubsystem();
-  //public static ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
+  //public static PIDElevatorSubsystem pidElevatorSubsystem = new PIDElevatorSubsystem();
+  public static ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
   public static OI m_oi;
 
   //Sonar senor
@@ -149,8 +149,7 @@ public class Robot extends TimedRobot {
     
     SmartDashboard.putNumber("Ultrasonic Sensor", ai.getValue());
     SmartDashboard.putBoolean("Photoelectric Sensor", di.get());
-    SmartDashboard.putNumber("Sens Position", 
-      Robot.pidElevatorSubsystem.elevator.getSelectedSensorPosition());
+
 
     this.CompressorHandler();
     SmartDashboard.putNumber("Compressor Status", pcm.getCompressorCurrent());
