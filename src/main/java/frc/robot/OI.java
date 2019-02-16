@@ -39,8 +39,8 @@ public class OI {
   JoystickButton reverseLift = new JoystickButton(stick, 1);
 
   public OI () {
-    grabberForward.whileHeld(new GrabberCommand(0.25));
-    grabberReverse.whileHeld(new GrabberCommand(-0.25));
+    grabberForward.whileHeld(new GrabberCommand(0.1));
+    grabberReverse.whileHeld(new GrabberCommand(0.1));
 
     sliderForward.whenPressed(new SliderCommand(1.0));
     sliderReverse.whenPressed(new SliderCommand(-1.0));

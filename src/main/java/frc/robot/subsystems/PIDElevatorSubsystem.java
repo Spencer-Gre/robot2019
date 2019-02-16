@@ -11,6 +11,7 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
@@ -20,10 +21,10 @@ import frc.robot.RobotMap;
  */
 public class PIDElevatorSubsystem extends Subsystem {
   
-  public TalonSRX elevator = new TalonSRX(RobotMap.kelevatorPort);
+  public WPI_TalonSRX elevator = new WPI_TalonSRX(RobotMap.kelevatorPort);
 
   public PIDElevatorSubsystem(){
-    elevator.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 0);
+    elevator.configSelectedFeedbackSensor(FeedbackDevice.Tachometer, 0, 0);
     elevator.setSensorPhase(true);
     elevator.setInverted(false);
     elevator.selectProfileSlot(0, 0);
