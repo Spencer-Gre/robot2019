@@ -154,12 +154,14 @@ public class Robot extends TimedRobot {
   }
 
   public void CompressorHandler(){
-     if(!pcm.getPressureSwitchValue()){
+    pcm.setClosedLoopControl(true); 
+    /*
+    if(!pcm.getPressureSwitchValue()){
        compressor.set(Value.kForward);
      } 
      else{
        compressor.set(Value.kOff);
-     }
+     }*/
   }
 
   /**
