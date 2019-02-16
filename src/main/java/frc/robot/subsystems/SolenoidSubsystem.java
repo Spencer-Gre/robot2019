@@ -15,32 +15,37 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * Add your docs here.
  */
 public class SolenoidSubsystem extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
-
+  //Ports 0 - 5 on solenoid portion of PCM
   DoubleSolenoid leftFront = new DoubleSolenoid(0, 1);
   DoubleSolenoid rightFront = new DoubleSolenoid(2, 3);
   DoubleSolenoid backCenter = new DoubleSolenoid(4, 5);
 
+  //Move all three pistons out
   public void TurnOnLift(){
     leftFront.set(Value.kForward);
     rightFront.set(Value.kForward);
     backCenter.set(Value.kForward);
   }
+  //Pull all three pistons in
   public void ReverseLift(){
     leftFront.set(Value.kReverse);
     rightFront.set(Value.kReverse);
     backCenter.set(Value.kReverse);
   }
+  //Pull front two pistons in
   public void ReverseFront(){
     leftFront.set(Value.kReverse);
     rightFront.set(Value.kReverse);
   }
+  //Pull back piston in
   public void ReverseBack(){
     backCenter.set(Value.kReverse);
   }
+  //freezes relay to current state
   public void OffLift(){
     leftFront.set(Value.kOff);
+    rightFront.set(Value.kOff);
+    backCenter.set(Value.kOff);
   }
 
   @Override

@@ -45,13 +45,16 @@ public class Robot extends TimedRobot {
   //public static ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
   public static OI m_oi;
 
+  //Sonar senor
   AnalogInput ai = new AnalogInput(2);
   DigitalInput di = new DigitalInput(0);
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
-  public static Compressor pcm = new Compressor();
+  //Pneumatic Control Module (PCM) is port 0 on CAN
+  public static Compressor pcm = new Compressor(); //defaults to port 0
+  //Compressor is port 0 on PCM compressor module
   public static Relay compressor = new Relay(0);
 
   /**
