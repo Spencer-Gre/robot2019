@@ -19,12 +19,25 @@ public class SolenoidSubsystem extends Subsystem {
   // here. Call these from Commands.
 
   DoubleSolenoid leftFront = new DoubleSolenoid(0, 1);
+  DoubleSolenoid rightFront = new DoubleSolenoid(2, 3);
+  DoubleSolenoid backCenter = new DoubleSolenoid(4, 5);
 
   public void TurnOnLift(){
     leftFront.set(Value.kForward);
+    rightFront.set(Value.kForward);
+    backCenter.set(Value.kForward);
   }
   public void ReverseLift(){
     leftFront.set(Value.kReverse);
+    rightFront.set(Value.kReverse);
+    backCenter.set(Value.kReverse);
+  }
+  public void ReverseFront(){
+    leftFront.set(Value.kReverse);
+    rightFront.set(Value.kReverse);
+  }
+  public void ReverseBack(){
+    backCenter.set(Value.kReverse);
   }
   public void OffLift(){
     leftFront.set(Value.kOff);
