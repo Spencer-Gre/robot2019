@@ -20,13 +20,15 @@ public class ElevatorSubsystem extends PIDSubsystem {
   // here. Call these from Commands.
 
   public WPI_TalonSRX elevator = new WPI_TalonSRX(RobotMap.kelevatorPort);
+  public double elevatorStartPosition;
 
   public ElevatorSubsystem(){
     super("Elevator", 1.0, 0.0, 0.0);
     setAbsoluteTolerance(0.2);
     getPIDController().setContinuous(false);
     elevator.setSelectedSensorPosition(0);
-
+    //initialize the starting position for the elevator
+    elevatorStartPosition = elevator.getSensorCollection().getQuadraturePosition();
   }
 
   public void ToggleElevator(double position){

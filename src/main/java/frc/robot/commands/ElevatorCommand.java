@@ -14,13 +14,16 @@ import java.lang.Math;
 
 public class ElevatorCommand extends Command {
 
-  public double set; //must NOT be public static double
+  public double target; //must NOT be public static double
 
   public ElevatorCommand(double input) {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
     requires(Robot.elevatorSubsystem);
-    set = input + Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition();
+    
+    //Moves elevator to position relative to when command is called
+    target = input + Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition();
+    
+    //Moves elevator to absolute position? untested.
+    //target = input + Robot.elevatorSubsystem.elevatorStartPosition;
   }
 
   // Called just before this Command runs the first time
@@ -33,14 +36,32 @@ public class ElevatorCommand extends Command {
   @Override
   protected void execute() {
     //Robot.elevatorSubsystem.usePIDOutput(set);
-    SmartDashboard.putNumber("EncoderValue", Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition());
 
-    double error = set - Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition();
-    double speed = Math.min(1.0,error/2000.0+0.1);
+    double slope = 2000.0; //how quickly motor speed decreases
+    double intercept = 0.1; //minimum motor speed while active
+    double minError = 10; //target error to kill motor
 
+    //Hacky P algorithm
+    //As motor gets closer to target position, slow down by calculating "speed" from error
+    //If motor overshoots in the positive direction, 'error' will be negative, as will speed
+    //Vice versa if motor overshotts in the negative direction (untested though)
+    double speed;
+    double error = target - Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition();
+    if(error > 0){
+      speed = Math.min(1.0,error/slope+intercept);
+    }else{
+      speed = Math.max(-1.0,error/slope-intercept);
+    }
+
+    //Print useful information about targetting
+    SmartDashboard.putNumber("Starting position", 
+      Robot.elevatorSubsystem.elevatorStartPosition);
+    SmartDashboard.putNumber("Target position", this.target);
+    SmartDashboard.putNumber("EncoderValue", 
+      Robot.elevatorSubsystem.elevator.getSensorCollection().getQuadraturePosition());
     SmartDashboard.putNumber("Error", error);
-
-    if(error > 10){
+    
+    if(Math.abs(error) > minError){
       Robot.elevatorSubsystem.elevator.set(speed);
     }else{
       end();
