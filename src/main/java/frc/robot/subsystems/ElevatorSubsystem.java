@@ -32,7 +32,8 @@ public class ElevatorSubsystem extends PIDSubsystem {
   }
 
   public void ToggleElevator(double position){
-  } 
+    
+  }
 
   public void TurnOffElevator(){
     elevator.stopMotor();

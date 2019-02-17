@@ -12,13 +12,11 @@ import frc.robot.Robot;
 
 public class GrabberCommand extends Command {
 
-  public double set; //must NOT be public static double
 
-  public GrabberCommand(double input) {
+  public GrabberCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.grabberSubsystem);
-    set = input;
   }
 
   // Called just before this Command runs the first time
@@ -30,7 +28,8 @@ public class GrabberCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.grabberSubsystem.ToggleGrabber(set);
+    double throttle = -Robot.m_oi.stick.getThrottle();
+    Robot.grabberSubsystem.ToggleGrabber(throttle);
     // Wont spin, unless negative number is passed in.
     
   }
