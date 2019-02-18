@@ -25,7 +25,7 @@ import frc.robot.subsystems.SliderSubsystem;
 import frc.robot.subsystems.SolenoidSubsystem;
 import frc.robot.subsystems.GrabberSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
-import frc.robot.subsystems.PIDElevatorSubsystem;
+import frc.robot.subsystems.RearWheelSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -41,8 +41,8 @@ public class Robot extends TimedRobot {
   public static LimelightSubsystem limelightSubsystem = new LimelightSubsystem();
   public static SolenoidSubsystem solenoidSubsystem = new SolenoidSubsystem();
   public static SliderSubsystem sliderSubsystem = new SliderSubsystem();
-  //public static PIDElevatorSubsystem pidElevatorSubsystem = new PIDElevatorSubsystem();
   public static ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
+  public static RearWheelSubsystem dropSubsystem = new RearWheelSubsystem();
   public static OI m_oi;
 
   //Sonar senor

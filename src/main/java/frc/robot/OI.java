@@ -13,6 +13,7 @@ import frc.robot.commands.GrabberCommand;
 import frc.robot.commands.SliderCommand;
 import frc.robot.commands.LiftCommand;
 import frc.robot.commands.ElevatorCommand;
+import frc.robot.commands.RearWheelCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -29,6 +30,9 @@ public class OI {
   JoystickButton sliderForward = new JoystickButton(stick, 7);
   JoystickButton sliderReverse = new JoystickButton(stick, 8);
 
+  JoystickButton dropForward = new JoystickButton(stick, 13);
+  JoystickButton dropReverse = new JoystickButton(stick, 14);
+
   //JoystickButton elevatorHatchOne = new JoystickButton(stick, 5);
   //JoystickButton resetElevator = new JoystickButton(stick, 4);
   //JoystickButton elevatorZero = new JoystickButton(stick, 10);
@@ -44,6 +48,9 @@ public class OI {
 
     sliderForward.whenPressed(new SliderCommand(1.0));
     sliderReverse.whenPressed(new SliderCommand(-1.0));
+
+    dropForward.whenPressed(new RearWheelCommand(0.25));
+    dropReverse.whileHeld(new RearWheelCommand(-0.25));
 
     liftButton.whileHeld(new LiftCommand(1.0));
     reverseLift.whileHeld(new LiftCommand(2.0));

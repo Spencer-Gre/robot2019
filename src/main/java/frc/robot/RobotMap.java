@@ -23,9 +23,9 @@ public class RobotMap {
   public static int krightSlavePort = 3;
 
   public static int kelevatorPort = 5;
-
   public static int sliderPort = 1;
   public static int grabberPort = 0;
+  public static int dropMotorPort = 2;
 
   public int ElevatorPos = 0;
 
