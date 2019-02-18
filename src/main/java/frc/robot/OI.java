@@ -14,12 +14,17 @@ import frc.robot.commands.SliderCommand;
 import frc.robot.commands.LiftCommand;
 import frc.robot.commands.ElevatorCommand;
 import frc.robot.commands.RearWheelCommand;
+import frc.robot.commands.TrackBallCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+
+  public boolean m_LimelightHasValidTarget = false;
+  public double m_LimelightDriveCommand = 0.0;
+  public double m_LimelightSteerCommand = 0.0;
   
   //Instantiate Joystick with port
   public Joystick stick = new Joystick(RobotMap.kjoystickPort);  
@@ -32,6 +37,8 @@ public class OI {
 
   JoystickButton dropForward = new JoystickButton(stick, 13);
   JoystickButton dropReverse = new JoystickButton(stick, 14);
+
+  JoystickButton trackBall = new JoystickButton(stick, 16);
 
   //JoystickButton elevatorHatchOne = new JoystickButton(stick, 5);
   //JoystickButton resetElevator = new JoystickButton(stick, 4);
@@ -51,6 +58,8 @@ public class OI {
 
     dropForward.whenPressed(new RearWheelCommand(0.25));
     dropReverse.whileHeld(new RearWheelCommand(-0.25));
+
+    trackBall.whileHeld(new TrackBallCommand());
 
     liftButton.whileHeld(new LiftCommand(1.0));
     reverseLift.whileHeld(new LiftCommand(2.0));

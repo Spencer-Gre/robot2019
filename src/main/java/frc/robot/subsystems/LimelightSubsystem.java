@@ -25,6 +25,8 @@ public class LimelightSubsystem extends Subsystem {
   NetworkTableEntry tv = limelight.getEntry("tv");
   NetworkTableEntry ta = limelight.getEntry("ta");
 
+
+  
   double x = tx.getDouble(0.0);
   double y = ty.getDouble(0.0);
   double area = ta.getDouble(0.0);
@@ -36,6 +38,10 @@ public class LimelightSubsystem extends Subsystem {
 
   public double getY(){
     return y;
+  }
+
+  public double getArea(){
+    return area;
   }
 
   public double getTarget(){
