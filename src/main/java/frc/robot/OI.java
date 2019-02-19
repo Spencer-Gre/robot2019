@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.GrabberCommand;
 import frc.robot.commands.SliderCommand;
 import frc.robot.commands.LiftCommand;
-import frc.robot.commands.ElevatorCommand;
 import frc.robot.commands.RearWheelCommand;
 import frc.robot.commands.TrackBallCommand;
 
@@ -64,7 +63,6 @@ public class OI {
     liftButton.whileHeld(new LiftCommand(1.0));
     reverseLift.whileHeld(new LiftCommand(2.0));
 
-    elevatorButton.whenPressed(new ElevatorCommand(3000));
 
     //resetElevator.whenPressed(new ElevatorForceZero());
     //elevatorHatchOne.whenPressed(new HatchOneCommand());

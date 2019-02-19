@@ -4,14 +4,14 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-/*
+
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class ElevatorForceZero extends Command {
-  public ElevatorForceZero() {
+public class ElevatorReset extends Command {
+  public ElevatorReset() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.pidElevatorSubsystem);
@@ -47,4 +47,3 @@ public class ElevatorForceZero extends Command {
   protected void interrupted() {
   }
 }
-*/
