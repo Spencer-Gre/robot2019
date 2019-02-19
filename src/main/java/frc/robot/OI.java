@@ -66,7 +66,7 @@ public class OI {
 
 
     resetElevator.whenPressed(new ElevatorReset());
-    elevatorHatchOne.whenPressed(new HatchOneCommand());
+    elevatorHatchOne.whenPressed(new HatchOneCommand(RobotMap.kHatchOne));
     elevatorZero.whenPressed(new ElevatorZeroCommand());
 
   }
