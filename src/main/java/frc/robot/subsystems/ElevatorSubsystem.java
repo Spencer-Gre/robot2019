@@ -15,7 +15,7 @@ import frc.robot.RobotMap;
 /**
  * Add your docs here.
  */
-public class ElevatorSubsystem extends PIDSubsystem {
+/*public class ElevatorSubsystem extends PIDSubsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
@@ -55,3 +55,4 @@ public class ElevatorSubsystem extends PIDSubsystem {
     elevator.pidWrite(output);
   }
 }
+*/

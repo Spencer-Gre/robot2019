@@ -26,19 +26,17 @@ public class HatchOneCommand extends Command {
   @Override
   protected void execute() {
     Robot.pidElevatorSubsystem.gotoHatchOne();
-    end();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    this.cancel();
   }
 
   // Called when another command which requires one or more of the same

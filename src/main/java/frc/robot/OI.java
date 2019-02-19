@@ -14,6 +14,9 @@ import frc.robot.commands.SliderCommand;
 import frc.robot.commands.LiftCommand;
 import frc.robot.commands.RearWheelCommand;
 import frc.robot.commands.TrackBallCommand;
+import frc.robot.commands.ElevatorReset;
+import frc.robot.commands.HatchOneCommand;
+import frc.robot.commands.ElevatorZeroCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -39,11 +42,9 @@ public class OI {
 
   JoystickButton trackBall = new JoystickButton(stick, 16);
 
-  //JoystickButton elevatorHatchOne = new JoystickButton(stick, 5);
-  //JoystickButton resetElevator = new JoystickButton(stick, 4);
-  //JoystickButton elevatorZero = new JoystickButton(stick, 10);
-
-  JoystickButton elevatorButton = new JoystickButton(stick, 5);
+  JoystickButton elevatorHatchOne = new JoystickButton(stick, 5);
+  JoystickButton resetElevator = new JoystickButton(stick, 4);
+  JoystickButton elevatorZero = new JoystickButton(stick, 10);
 
   JoystickButton liftButton = new JoystickButton(stick, 2);
   JoystickButton reverseLift = new JoystickButton(stick, 1);
@@ -64,9 +65,9 @@ public class OI {
     reverseLift.whileHeld(new LiftCommand(2.0));
 
 
-    //resetElevator.whenPressed(new ElevatorForceZero());
-    //elevatorHatchOne.whenPressed(new HatchOneCommand());
-    //elevatorZero.whenPressed(new ElevatorZeroCommand());
+    resetElevator.whenPressed(new ElevatorReset());
+    elevatorHatchOne.whenPressed(new HatchOneCommand());
+    elevatorZero.whenPressed(new ElevatorZeroCommand());
 
   }
 
