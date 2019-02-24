@@ -55,6 +55,10 @@ public class PIDElevatorSubsystem extends Subsystem {
     elevator.set(ControlMode.Position, 600);
   }
 
+  public void goToHatch(int position){
+    elevator.set(ControlMode.Position, position);
+  }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
