@@ -37,6 +37,12 @@ public class SliderCommand extends Command {
     Robot.sliderSubsystem.ToggleSlider(set);
     SmartDashboard.putNumber("Bosch Motor Value", Robot.sliderSubsystem.getValue());
 
+    if(set == 1){
+      if(Robot.sliderSubsystem.bosch.get() == false){
+        end();
+      }
+    }
+
     if(Robot.sliderSubsystem.getValue() >= 600){
       end();
     }

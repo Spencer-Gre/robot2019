@@ -32,10 +32,10 @@ public class PIDElevatorSubsystem extends Subsystem {
     elevator.configPeakOutputReverse(-1, 0);
 
     elevator.configAllowableClosedloopError(0, 0, 0);
-    elevator.config_kF(0, 0.474, 0);
+    elevator.config_kF(0, 1, 0);
     elevator.config_kP(0, 0.629, 0);
     elevator.config_kI(0, 0.0, 0);
-    elevator.config_kD(0, 0.0, 0);
+    elevator.config_kD(0, 0, 0);
 
   }
 
@@ -52,7 +52,7 @@ public class PIDElevatorSubsystem extends Subsystem {
   }
 
   public void gotoHatchOne(){
-    elevator.set(ControlMode.Position, 1500);
+    elevator.set(ControlMode.Position, 600);
   }
 
   @Override

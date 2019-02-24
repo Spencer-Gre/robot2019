@@ -47,7 +47,9 @@ public class Robot extends TimedRobot {
 
   //Sonar senor
   AnalogInput ai = new AnalogInput(2);
-  DigitalInput di = new DigitalInput(0);
+  // Not Working Photoelectric sensor
+  DigitalInput di = new DigitalInput(9);
+  //Bosch Seatbelt Switch
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();

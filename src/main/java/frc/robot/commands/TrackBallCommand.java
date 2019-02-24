@@ -29,7 +29,7 @@ public class TrackBallCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    NetworkTableInstance.getDefault().getTable("limelight").getEntry("pipline").setNumber(1);
+    NetworkTableInstance.getDefault().getTable("limelight").getEntry("pipline").setNumber(0);
 
     
     Update_Limelight_Tracking();
@@ -49,8 +49,8 @@ public class TrackBallCommand extends Command {
   public void Update_Limelight_Tracking()
   {
         // These numbers must be tuned for your Robot!  Be careful!
-        final double STEER_K = 0.03;                    // how hard to turn toward the target
-        final double DRIVE_K = 0.26;                    // how hard to drive fwd toward the target
+        final double STEER_K = 0.2;                    // how hard to turn toward the target
+        final double DRIVE_K = 0.1;                    // how hard to drive fwd toward the target
         final double DESIRED_TARGET_AREA = 50;        // Area of the target when the robot reaches the wall
         final double MAX_DRIVE = 0.3;                   // Simple speed limit so we don't drive too fast
 

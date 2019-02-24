@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
@@ -18,7 +19,7 @@ import frc.robot.RobotMap;
 public class SliderSubsystem extends Subsystem {
   public Talon tal = new Talon(RobotMap.sliderPort);
   public AnalogInput encoder = new AnalogInput(0);
-
+  public DigitalInput bosch = new DigitalInput(8);
 
   public long getValue(){
     return encoder.getAccumulatorCount();
