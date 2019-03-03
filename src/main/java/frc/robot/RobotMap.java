@@ -29,7 +29,7 @@ public class RobotMap {
 
   public int ElevatorPos = 0;
 
-  public static int kHatchOne = 500;
+  public static int kHatchOne = 600;
   public static int kHatchTwo = 1000;
   public static int kHatchThree = 1500;
 

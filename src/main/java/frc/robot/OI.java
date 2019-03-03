@@ -43,6 +43,7 @@ public class OI {
   JoystickButton trackBall = new JoystickButton(stick, 16);
 
   JoystickButton elevatorHatchOne = new JoystickButton(stick, 5);
+  JoystickButton elevatorHatchTwo = new JoystickButton(stick, 12);
   JoystickButton resetElevator = new JoystickButton(stick, 4);
   JoystickButton elevatorZero = new JoystickButton(stick, 10);
 
@@ -67,6 +68,7 @@ public class OI {
 
     resetElevator.whenPressed(new ElevatorReset());
     elevatorHatchOne.whenPressed(new HatchOneCommand(RobotMap.kHatchOne));
+    elevatorHatchTwo.whenPressed(new HatchOneCommand(RobotMap.kHatchTwo));
     elevatorZero.whenPressed(new ElevatorZeroCommand());
 
   }
