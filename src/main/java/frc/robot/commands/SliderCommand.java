@@ -35,13 +35,14 @@ public class SliderCommand extends Command {
   @Override
   protected void execute() {
     Robot.sliderSubsystem.ToggleSlider(set);
-    SmartDashboard.putNumber("Bosch Motor Value", Robot.sliderSubsystem.getValue());
 
-    if(set == 1){
+    // If going forward and limit switch is pressed, wont go
+    if(set < 0){
       if(Robot.sliderSubsystem.bosch.get() == false){
         end();
       }
     }
+
 
     if(Robot.sliderSubsystem.getValue() >= 600){
       end();
@@ -60,6 +61,7 @@ public class SliderCommand extends Command {
   @Override
   protected void end() {
     Robot.sliderSubsystem.TurnOffSlider();
+    Robot.sliderSubsystem.encoder.resetAccumulator();
     this.cancel();
   }
 

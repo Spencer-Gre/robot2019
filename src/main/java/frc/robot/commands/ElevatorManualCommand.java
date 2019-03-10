@@ -7,20 +7,19 @@
 
 package frc.robot.commands;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-
-public class LiftCommand extends Command {
-
-  public double set;
-
-  public LiftCommand(double input) {
+public class ElevatorManualCommand extends Command {
+  public double speed;
+  
+  public ElevatorManualCommand(double input) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.solenoidSubsystem);
-
-    set = input;
+    requires(Robot.pidElevatorSubsystem);
+    speed=input;
   }
 
   // Called just before this Command runs the first time
@@ -31,16 +30,7 @@ public class LiftCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(set == 1.0){
-      Robot.solenoidSubsystem.TurnOnLift();
-    } else if(set == 2.0){
-      Robot.solenoidSubsystem.ReverseLift();
-    } else if(set == 3.0){
-      Robot.solenoidSubsystem.ReverseFront();
-    } else if(set == 4.0){
-      Robot.solenoidSubsystem.ReverseBack();
-    }
-    
+    Robot.pidElevatorSubsystem.manualLift(Robot.m_oi.stick2.getY());
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -52,13 +42,14 @@ public class LiftCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-      this.cancel();
+    Robot.pidElevatorSubsystem.elevator.setNeutralMode(NeutralMode.Brake);
+    this.cancel();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-      end();
+    end();
   }
 }

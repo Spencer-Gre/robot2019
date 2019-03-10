@@ -33,7 +33,7 @@ public class PIDElevatorSubsystem extends Subsystem {
 
     elevator.configAllowableClosedloopError(0, 0, 0);
     elevator.config_kF(0, 0.2, 0);
-    elevator.config_kP(0, 0.59, 0);
+    elevator.config_kP(0, 0.3, 0);
     elevator.config_kI(0, 0.0, 0);
     elevator.config_kD(0, 0.0, 0);
 
@@ -41,6 +41,10 @@ public class PIDElevatorSubsystem extends Subsystem {
 
   public void position(double num){
     elevator.set(ControlMode.Position, num);
+  }
+
+  public void manualLift(double speed){
+    elevator.set(speed);
   }
 
   public void gotoZero(){

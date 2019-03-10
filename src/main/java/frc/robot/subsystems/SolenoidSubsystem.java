@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -16,9 +17,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class SolenoidSubsystem extends Subsystem {
   //Ports 0 - 5 on solenoid portion of PCM
-  DoubleSolenoid leftFront = new DoubleSolenoid(0, 1);
-  DoubleSolenoid rightFront = new DoubleSolenoid(2, 3);
-  DoubleSolenoid backCenter = new DoubleSolenoid(4, 5);
+  DoubleSolenoid leftFront = new DoubleSolenoid(1, 0);
+  DoubleSolenoid rightFront = new DoubleSolenoid(3, 2);
+  DoubleSolenoid backCenter = new DoubleSolenoid(5, 4);
+  Solenoid top = new Solenoid(6);
 
   //Move all three pistons out
   public void TurnOnLift(){
@@ -46,6 +48,14 @@ public class SolenoidSubsystem extends Subsystem {
     leftFront.set(Value.kOff);
     rightFront.set(Value.kOff);
     backCenter.set(Value.kOff);
+  }
+
+  public void PushTop(){
+    top.set(true);
+  }
+  
+  public void RetractTop(){
+    top.set(false);
   }
 
   @Override

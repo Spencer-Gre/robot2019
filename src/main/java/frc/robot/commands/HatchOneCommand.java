@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class HatchOneCommand extends Command {
@@ -29,6 +30,7 @@ public class HatchOneCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    SmartDashboard.putNumber("elevator position: ",Robot.pidElevatorSubsystem.elevator.getSelectedSensorPosition(0));
     Robot.pidElevatorSubsystem.goToHatch(target);
   }
 
