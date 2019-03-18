@@ -16,8 +16,7 @@ import frc.robot.commands.RearWheelCommand;
 import frc.robot.commands.ExtraPusherCommand;
 import frc.robot.commands.TrackBallCommand;
 import frc.robot.commands.ElevatorReset;
-import frc.robot.commands.HatchOneCommand;
-import frc.robot.commands.ElevatorZeroCommand;
+import frc.robot.commands.ElevatorPositionCommand;
 import frc.robot.commands.ElevatorManualCommand;
 
 /**
@@ -34,7 +33,7 @@ public class OI {
   public Joystick stick = new Joystick(RobotMap.kjoystickPort);
   public Joystick stick2 = new Joystick(RobotMap.kjoystick2Port);  
 
-  JoystickButton grabberForward = new JoystickButton(stick, 5);
+  JoystickButton grabberForward = new JoystickButton(stick, 1);
   JoystickButton grabberReverse = new JoystickButton(stick, 10);
 
   JoystickButton sliderForward = new JoystickButton(stick, 6);
@@ -47,7 +46,7 @@ public class OI {
 
   JoystickButton trackBall = new JoystickButton(stick, 16);
 
-  JoystickButton manualUp = new JoystickButton(stick2, 13);
+  JoystickButton manualUp = new JoystickButton(stick2, 1);
   JoystickButton manualDown = new JoystickButton(stick2, 10);
 
   JoystickButton elevatorHatchOne = new JoystickButton(stick2, 7);
@@ -62,7 +61,7 @@ public class OI {
   JoystickButton elevatorZero = new JoystickButton(stick2, 14);
 
   JoystickButton liftButton = new JoystickButton(stick, 2);
-  JoystickButton reverseLift = new JoystickButton(stick, 1);
+  JoystickButton reverseLift = new JoystickButton(stick, 4);
   JoystickButton reverseFront = new JoystickButton(stick, 12);
   JoystickButton reverseRear  = new JoystickButton(stick, 15);
 
@@ -88,13 +87,13 @@ public class OI {
     
 
     resetElevator.whenPressed(new ElevatorReset());
-    elevatorHatchOne.whenPressed(new HatchOneCommand(RobotMap.kHatchOne));
-    elevatorHatchTwo.whenPressed(new HatchOneCommand(RobotMap.kHatchTwo));
-    elevatorHatchThree.whenPressed(new HatchOneCommand(RobotMap.kHatchThree));
-    elevatorBallOne.whenPressed(new HatchOneCommand(RobotMap.kBallOne));
-    elevatorBallTwo.whenPressed(new HatchOneCommand(RobotMap.kBallTwo));
-    elevatorBallThree.whenPressed(new HatchOneCommand(RobotMap.kBallThree));
-    elevatorZero.whenPressed(new ElevatorZeroCommand());
+    elevatorHatchOne.whenPressed(new ElevatorPositionCommand(RobotMap.kHatchOne));
+    elevatorHatchTwo.whenPressed(new ElevatorPositionCommand(RobotMap.kHatchTwo));
+    elevatorHatchThree.whenPressed(new ElevatorPositionCommand(RobotMap.kHatchThree));
+    elevatorBallOne.whenPressed(new ElevatorPositionCommand(RobotMap.kBallOne));
+    elevatorBallTwo.whenPressed(new ElevatorPositionCommand(RobotMap.kBallTwo));
+    elevatorBallThree.whenPressed(new ElevatorPositionCommand(RobotMap.kBallThree));
+    elevatorZero.whenPressed(new ElevatorPositionCommand(0));
 
     toggleTop.whenPressed(new ExtraPusherCommand());
 

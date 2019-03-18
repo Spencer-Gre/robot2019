@@ -44,7 +44,7 @@ public class SliderCommand extends Command {
     }
 
 
-    if(Robot.sliderSubsystem.getValue() >= 600){
+    if(Robot.sliderSubsystem.getValue() >= 800){
       end();
     }
     // Wont spin, unless negative number is passed in.
