@@ -31,7 +31,7 @@ public class ElevatorPositionCommand extends Command {
   @Override
   protected void execute() {
     SmartDashboard.putNumber("elevator position: ",Robot.pidElevatorSubsystem.elevator.getSelectedSensorPosition(0));
-    Robot.pidElevatorSubsystem.goToHatch(target);
+    Robot.pidElevatorSubsystem.position(target);
   }
 
   // Make this return true when this Command no longer needs to run execute()

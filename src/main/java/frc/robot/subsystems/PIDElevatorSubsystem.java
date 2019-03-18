@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.DemandType;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -21,6 +22,11 @@ public class PIDElevatorSubsystem extends Subsystem {
   
   public WPI_TalonSRX elevator = new WPI_TalonSRX(RobotMap.kelevatorPort);
 
+  public static int TIMEOUT_MS = 20;
+  public static double kP = 0.0;
+  public static double kI = 0.0;
+  public static double kD = 0.0;
+
   public PIDElevatorSubsystem(){
     elevator.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
 
@@ -31,36 +37,26 @@ public class PIDElevatorSubsystem extends Subsystem {
     elevator.configPeakOutputForward(1, 0);
     elevator.configPeakOutputReverse(-1, 0);
 
+
+
     elevator.configAllowableClosedloopError(0, 0, 0);
-    elevator.config_kF(0, 0.2, 0);
-    elevator.config_kP(0, 0.3, 0);
-    elevator.config_kI(0, 0.0, 0);
-    elevator.config_kD(0, 0.0, 0);
+    elevator.config_kF(0, 0, TIMEOUT_MS);
+    elevator.config_kP(0, kP, TIMEOUT_MS);
+    elevator.config_kI(0, kI, TIMEOUT_MS);
+    elevator.config_kD(0, kD, TIMEOUT_MS);
 
   }
 
   public void position(double num){
-    elevator.set(ControlMode.Position, num);
+    elevator.set(ControlMode.Position, num, DemandType.ArbitraryFeedForward, 0.1);
   }
 
   public void manualLift(double speed){
-    elevator.set(speed);
-  }
-
-  public void gotoZero(){
-    elevator.set(ControlMode.Position, 0);
+    elevator.set(ControlMode.PercentOutput, speed, DemandType.ArbitraryFeedForward, 0.1);
   }
 
   public void resetEncoder(){
     elevator.setSelectedSensorPosition(0, 0, 0);
-  }
-
-  public void gotoHatchOne(){
-    elevator.set(ControlMode.Position, 5000);
-  }
-
-  public void goToHatch(int position){
-    elevator.set(ControlMode.Position, position);
   }
 
   @Override
