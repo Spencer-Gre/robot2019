@@ -26,6 +26,7 @@ public class PIDElevatorSubsystem extends Subsystem {
   public static double kP = 0.0;
   public static double kI = 0.0;
   public static double kD = 0.0;
+  public static double ArbFF = 0.1;
 
   public PIDElevatorSubsystem(){
     elevator.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
@@ -48,11 +49,11 @@ public class PIDElevatorSubsystem extends Subsystem {
   }
 
   public void position(double num){
-    elevator.set(ControlMode.Position, num, DemandType.ArbitraryFeedForward, 0.1);
+    elevator.set(ControlMode.Position, num, DemandType.ArbitraryFeedForward, ArbFF);
   }
 
   public void manualLift(double speed){
-    elevator.set(ControlMode.PercentOutput, speed, DemandType.ArbitraryFeedForward, 0.1);
+    elevator.set(ControlMode.PercentOutput, speed, DemandType.ArbitraryFeedForward, ArbFF);
   }
 
   public void resetEncoder(){

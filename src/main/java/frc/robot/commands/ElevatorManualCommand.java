@@ -42,7 +42,6 @@ public class ElevatorManualCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.pidElevatorSubsystem.elevator.setNeutralMode(NeutralMode.Brake);
     this.cancel();
   }
 
