@@ -26,7 +26,7 @@ public class PIDElevatorSubsystem extends Subsystem {
   public static double kP = 0.1;
   public static double kI = 0.0;
   public static double kD = 0.0;
-  public static double ArbFF = 0.1;
+  public static double ArbFF = 0.3;
 
   public PIDElevatorSubsystem(){
     elevator.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
