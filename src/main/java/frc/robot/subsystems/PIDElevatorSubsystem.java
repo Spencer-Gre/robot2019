@@ -23,7 +23,7 @@ public class PIDElevatorSubsystem extends Subsystem {
   public WPI_TalonSRX elevator = new WPI_TalonSRX(RobotMap.kelevatorPort);
 
   public static int TIMEOUT_MS = 20;
-  public static double kP = 0.0;
+  public static double kP = 0.1;
   public static double kI = 0.0;
   public static double kD = 0.0;
   public static double ArbFF = 0.1;
